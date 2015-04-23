@@ -26,6 +26,7 @@ var pageTitle = (function() {
 <html lang="<%=config.language%>">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title><%=pageTitle%></title>
 	<link href='http://fonts.googleapis.com/css?family=Martel:300,400,700' rel='stylesheet' type='text/css'>
 	<% theme.stylesheets.forEach(function(url) { %>
@@ -36,11 +37,7 @@ var pageTitle = (function() {
 
 <%-partial('partials/header')%>
 
-	<div id="content-outer">
-		<div id="content-inner">
-			<%- body %>
-		</div>
-	</div>
+<%- body %>
 
 	<div id="bottom-outer">
 		<div id="bottom-inner">

@@ -21,4 +21,5 @@ favicon: /favicon.png
 
 # loaded in the head
 stylesheets:
-- /css/style.css
+  - /components/normalize-css/normalize.css
+  - /css/style.css

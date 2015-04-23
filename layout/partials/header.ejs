@@ -1,0 +1,14 @@
+<header id="site_header">
+<div id="site_title_wrapper">
+<p id="site_title"><%= config.title %></p>
+<p id="site_subtitle"><%= config.subtitle %></p>
+<p id="site_description"><%= config.description %></p>
+</div>
+<nav id="site_navigation">
+<ul>
+<% Object.keys(theme.menu).forEach(function(key) { %>
+  <li><a href="<%= theme.menu[key] %>"><%= key %></a></li>
+<% }); %>
+</ul>
+</nav>
+</header>

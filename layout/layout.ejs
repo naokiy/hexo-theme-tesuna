@@ -1,12 +1,25 @@
 
 <%
-var pageTitle = page.title || config.subtitle || '';
-if (is_archive()) pageTitle = 'Archives';
-if (is_tag()) pageTitle = 'Tag: ' + page.tag;
-if (is_category()) pageTitle = 'Category: ' + page.category;
-if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
-if (is_year()) pageTitle += ': ' + page.year;
-pageTitle += ' [ ' + config.title + ' ]';
+
+var pageTitle = (function() {
+	var suffix = ' | ' + config.title + '[' + config.subtitle + ']';
+	if (is_archive()) {
+		if (is_year()) {
+			return 'Archive: ' + page.year + suffix;
+		}
+		if (is_month()) {
+			return 'Archive: ' + page.year + '/' + page.month + suffix;
+		}
+	}
+	if (is_tag()) {
+		return 'Tag: ' + page.tag + suffix;
+	}
+	if (is_category()) {
+		return 'Category: ' + page.category + suffix;
+	}
+	return config.title + '[' + config.subtitle + ']' + ' - ' + config.description;
+})();
+
 %>
 
 <!DOCTYPE html>
@@ -14,19 +27,14 @@ pageTitle += ' [ ' + config.title + ' ]';
 <head>
 	<meta charset="UTF-8">
 	<title><%=pageTitle%></title>
+	<link href='http://fonts.googleapis.com/css?family=Martel:300,400,700' rel='stylesheet' type='text/css'>
 	<% theme.stylesheets.forEach(function(url) { %>
 		<link rel="stylesheet" href="<%=url%>">
 	<% }); %>
 </head>
 <body>
 
-	<div id="menu-outer">
-		<div id="menu-inner">
-			<% Object.keys(theme.menu).forEach(function(key) { %>
-				<a href="<%=theme.menu[key]%>"><%=key%></a>
-			<% }); %>
-		</div>
-	</div>
+<%-partial('partials/header')%>
 
 	<div id="content-outer">
 		<div id="content-inner">

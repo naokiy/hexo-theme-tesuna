@@ -1,6 +1,20 @@
-
-<article id="post">
-	<h1><%=page.title%></h1>
+<article class="post">
+  <header class="article_header">
+	  <% if (page.categories && page.categories.length > 0) { %>
+			<ol class="article_breadcrumb">
+			<% page.categories.data.forEach(function(data) {
+				%>
+				<li class="article_breadcrumb_node"><a href="<%= data.permalink %>" class="category">
+				<%= data.name %>
+				<span class="category_length">(<%= data.length %>)</span></a></li>
+				<%
+			}); %>
+			<li class="article_breadcrumb_node article_breadcrumb_leaf"><%= page.title %></li>
+			</ol>
+		<% } %>
+		<h1><%=page.title%></h1>
+	</header>
+	<%- toc(page.content, {list_number : false}) %>
 	<%-page.content%>
 </article>
 

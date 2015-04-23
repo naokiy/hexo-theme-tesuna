@@ -1,61 +1,160 @@
-
 body
-	margin 1em 2em
+	font-family 'Martel', sans-serif
 
-h1,h2,h3
-	font-family sans-serif
-	font-weight 500
+/* site_header */
+#site_header
+	@media screen and (max-width: 480px)
+		padding 8px
+		#site_title
+			font-weight bold
+			margin 0
+			padding 0
+		#site_title_wrapper
+			#site_subtitle, #site_description
+				display none
+		#site_navigation
+			ul
+				border-style solid
+				border-width 1px 0
+				border-color #f0f0f0
+				display flex
+				align-items baseline
+				list-style none
+				margin 0 -8px
+				padding 0 8px
+				li
+					margin 0
+					padding 0
+					a
+						display block
+						padding 0 0.5em
+						margin 0 1em 0 0
+						border-width 0 1px
+						border-color #f0f0f0
+						border-style solid
+	@media screen and (min-width: 480.1px) and (max-width: 768px)
+		padding 20px 32px
+		#site_title_wrapper
+			display flex
+			flex-wrap wrap
+			align-items baseline
+			p
+				margin 0
+				padding 0
+			#site_title
+				font-size 1.5em
+				flex-shrink 0
+			#site_subtitle
+				margin 0 1em
+			#site_subtitle, #site_description
+				font-size 0.75em
+				flex-shrink 0
+		#site_navigation
+			ul
+				border-style solid
+				border-width 1px 0
+				border-color #f0f0f0
+				display flex
+				align-items baseline
+				list-style none
+				margin 16px -32px 0 -32px
+				padding 0 32px
+				li
+					margin 0
+					padding 0
+					a
+						display block
+						padding 0.5em
+						margin 0 1em 0 0
+						border-width 0 1px
+						border-color #f0f0f0
+						border-style solid
+	@media screen and (min-width: 768.1px)
+		padding 20px 32px
+		#site_title_wrapper
+			display flex
+			align-items baseline
+			float left
+			p
+				margin 0
+				padding 0
+			#site_title
+				font-size 1.5em
+				flex-shrink 0
+			#site_subtitle
+				margin 0 1em
+			#site_subtitle, #site_description
+				font-size 0.75em
+				flex-shrink 0
+		#site_navigation
+			float right
+			ul
+				display flex
+				align-items baseline
+				list-style none
+				margin -20px 0 0 0
+				padding 0
+				li
+					margin 0
+					padding 0
+					a
+						display block
+						padding 20px 0.5em 0.5em 0.5em
+						margin 0 0 0 1em
+						border-width 0 1px 1px 1px
+						border-color #f0f0f0
+						border-style solid
+#site_header:after
+	@media screen and (min-width: 768.1px)
+		content '.'
+		display block
+		clear both
+		height 0
+		font-size 0
+		visibility hidden
 
-p,aside,time
-	font-family serif
+.article_header
+	/*background linear-gradient(to bottom, #bf9d3e, #fbb829 7%, #f2e5bd 15%, #f2e5bd 38%, #fbb829 62%, #bf9d3e)*/
+	background #bf9d3e
+	padding 20px 32px
+	h1
+		padding 0
+		margin 0
+		font-size 300%
+		font-weight 200
+		font-family 'Martel', sans-serif
 
-// layout
-#menu-outer
-	background-color rgba(0, 0, 0, 0.1)
-	border 1px solid rgba(0, 0, 0, 0.1)
-	border-radius 0.3em
-
-#menu-inner
-	padding 0.3em
-	a
-		display inline-block
-		margin 0.1em 0.5em 0 0.3em
-
-// archive
-#archive
-	// your style
-	.archive-item
-		// your style
-
-// category
-#category
-	// your style
-	.category-item
-		// your style
-
-// page
-article#page
-	// your style
-
-// post
-article#post
-	// your style
-
-// tag
-#tag
-	.tag-item
-		// your style
-
-// pagination
-#pagination
-	text-align center
-	.prev,.next
-		display inline-block
-		margin 0.3em
-
-// recent-posts
-#recent-posts
-	.recent-post-item
-		margin-bottom 0.3em
+.article_breadcrumb
+	padding 0
+	margin 0
+	display flex
+	flex-wrap wrap
+	list-style none
+	font-size 75%
+	align-items baseline
+	.article_breadcrumb_node
+		margin 0 0.5em 0 0
 		a
-			margin-right 1em
+			background-color #f2e5bd
+			color black
+			display block
+			padding 0.3em
+			margin-bottom 0.3em
+			border-width 0 0 2px 0
+			border-style solid
+			border-color black
+			text-decoration none
+		a:after
+			content '/'
+			text-decoration none
+			margin 0 0.3em 0 0.6em
+			display inline
+	.article_breadcrumb_leaf
+		background-color #f2e5bd
+		color black
+		padding 0.3em
+		margin-bottom 0.3em
+		border-width 0 0 2px 0
+		border-style solid
+		border-color black
+

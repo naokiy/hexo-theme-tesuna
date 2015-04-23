@@ -3,5 +3,7 @@
   "version": "0.0.0",
   "description": "tesuna hexo theme",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "normalize-css": "~3.0.3"
+  }
 }
